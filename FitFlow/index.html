@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlow - Health & Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>FitFlow</h1>
+        <nav>
+            <button id="dashboardBtn">Dashboard</button>
+            <button id="logBtn">Log Data</button>
+            <button id="summaryBtn">Weekly Summary</button>
+            <button id="aiAskBtn">AI Ask</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard" class="active">
+            <div class="user-profile">
+                <h2 id="welcomeMessage">Welcome!</h2>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Member Since:</span>
+                        <span id="memberSince">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Logs:</span>
+                        <span id="totalLogs">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="todaySummary">
+                <h3>Today's Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>Water Intake</h4>
+                        <p id="waterIntake">0 ml</p>
+                        <div class="progress-circle" id="waterProgress"></div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Calories</h4>
+                        <p id="caloriesConsumed">0 kcal</p>
+                        <p id="caloriesNet">Net: 0 kcal</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Exercise</h4>
+                        <p id="exercisesLogged">0 activities</p>
+                        <p id="exerciseDuration">0 minutes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-system">
+                <div class="chart-category wide">
+                    <h3>Daily Metrics</h3>
+                    <div class="chart-group">
+                        <div class="chart-card">
+                            <canvas id="waterChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <canvas id="caloriesChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <canvas id="exerciseChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-category">
+                    <h3>Weekly Overview</h3>
+                    <div class="chart-group">
+                        <div class="chart-card">
+                            <canvas id="weeklyWaterChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <canvas id="weeklyCaloriesChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <canvas id="weeklyExerciseChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="logData">
+            <h2>Log Your Daily Data</h2>
+            <form id="dataForm">
+                <div class="form-group">
+                    <label for="water">Water Intake (ml):</label>
+                    <input type="number" id="water" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="exercise">Exercise Routine:</label>
+                    <select id="exercise" required>
+                        <option value="">Select exercise</option>
+                        <option value="Running">Running</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Weight Training">Weight Training</option>
+                        <option value="Yoga">Yoga</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exerciseDuration">Exercise Duration (minutes):</label>
+                    <input type="number" id="exerciseDuration" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="calories">Calories Consumed:</label>
+                    <input type="number" id="calories" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="caloriesBurned">Calories Burned:</label>
+                    <input type="number" id="caloriesBurned" min="0" required>
+                </div>
+                <button type="submit">Save Data</button>
+            </form>
+            
+            <div class="log-history">
+                <h3>Your Log History</h3>
+                <div class="table-container">
+                    <table id="logTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Water (ml)</th>
+                                <th>Exercise</th>
+                                <th>Duration (min)</th>
+                                <th>Calories</th>
+                                <th>Burned</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Log entries will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="weeklySummary">
+            <h2>Weekly Summary</h2>
+            <div id="summaryStats"></div>
+            <canvas id="weeklyChart"></canvas>
+        </section>
+
+        <section id="aiAsk">
+            <h2>AI Health Assistant</h2>
+            <div class="ai-container">
+                <form id="aiForm">
+                    <div class="form-group">
+                        <label for="healthQuery">Ask about any health condition:</label>
+                        <textarea id="healthQuery" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+                <div id="aiResults" class="ai-results">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+    <script src="charts.js"></script>
+</body>
+</html>
