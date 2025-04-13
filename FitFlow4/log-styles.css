@@ -1,0 +1,151 @@
+/* Enhanced Log Data Section */
+#logData {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+#dataForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    background: #f9fbfd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#dataForm .form-group {
+    margin-bottom: 0;
+}
+
+#dataForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4a6fa5;
+}
+
+#dataForm input,
+#dataForm select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#dataForm input:focus,
+#dataForm select:focus {
+    outline: none;
+    border-color: #2ec4b6;
+    box-shadow: 0 0 0 3px rgba(46, 196, 182, 0.2);
+}
+
+#dataForm button[type="submit"] {
+    grid-column: 1/-1;
+    background: linear-gradient(135deg, #2ec4b6, #20a899);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(46, 196, 182, 0.2);
+}
+
+#dataForm button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(46, 196, 182, 0.3);
+}
+
+.log-history {
+    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+#logTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#logTable th {
+    background: linear-gradient(135deg, #2ec4b6, #20a899);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+#logTable td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e6ed;
+    transition: all 0.2s ease;
+}
+
+#logTable tr:not(:first-child):hover td {
+    background-color: #f5f9ff;
+    transform: translateX(4px);
+}
+
+#logTable tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+.exercise-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-running { background-color: #4a6fa5; }
+.badge-cycling { background-color: #2ec4b6; }
+.badge-swimming { background-color: #20a899; }
+.badge-weight { background-color: #ff9f1c; }
+.badge-yoga { background-color: #9b59b6; }
+.badge-other { background-color: #e74c3c; }
+
+.input-error {
+    border-color: #e74c3c !important;
+    background-color: #fef0f0;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #dataForm {
+        grid-template-columns: 1fr;
+    }
+    
+    #logTable {
+        font-size: 0.9rem;
+    }
+    
+    #logTable th,
+    #logTable td {
+        padding: 0.5rem;
+    }
+}
